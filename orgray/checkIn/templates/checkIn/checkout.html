@@ -1,0 +1,51 @@
+{% extends 'checkIn/base.html' %}
+
+{% block title %}Check-Out - Orgray Car Rentals{% endblock %}
+
+{% block content %}
+    <h3><u>Please enter Check-Out details</u></h3>
+    <div class="form-container" style="width: 80%; margin: 0 auto;">
+        <form method="post" action="{% url 'checkout' %}">
+            {% csrf_token %}
+            <style>
+                input, select {
+                    width: 100%;
+                    padding: 8px;
+                    margin: 4px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                }
+                
+                label {
+                    color: #000;
+                    display: block;
+                    margin: 4px 0;
+                }
+                
+                button {
+                    width: 50%;
+                    margin: 10px auto;
+                    text-align: center;
+                    padding: 8px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                
+                button:hover {
+                    background-color: #45a049;
+                }
+            </style>
+            {{ form.as_p }}
+            <button type="submit">Calculate Total Cost</button>
+        </form>
+    </div>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+{% endblock %}

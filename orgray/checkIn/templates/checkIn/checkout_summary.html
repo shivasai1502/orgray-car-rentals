@@ -1,0 +1,12 @@
+{% extends 'checkIn/base.html' %}
+
+{% block title %}Check-Out Summary - Orgray Car Rentals{% endblock %}
+
+{% block content %}
+    <h2>Check-Out Summary</h2>
+
+    <p><strong>Check-In Date:</strong> {{ checkin_entry.checkin_date }}</p>
+    <p><strong>Check-Out Date:</strong> {{ checkout_date }}</p>
+    <p><strong>Number of Days:</strong> {{ num_days }}</p>
+    <p><strong>Total Cost:</strong> $ {{ total_cost }}</p>
+{% endblock %}

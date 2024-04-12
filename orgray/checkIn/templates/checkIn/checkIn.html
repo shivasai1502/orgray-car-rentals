@@ -1,0 +1,31 @@
+{% extends 'checkIn/base.html' %}
+
+{% block title %}Check-In - Orgray Car Rentals{% endblock %}
+
+{% block content %}
+    <h3><u>Please enter Check-In details</u></h3>
+    <div class="form-container">
+        <form method="post" action="{% url 'checkIn' %}" style="width: 80%; margin: 0 auto;">
+            {% csrf_token %}
+            <style>
+                input, select {
+                    width: 100%;
+                    padding: 8px;
+                    margin: 4px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                    border-radius: 4px;
+                }
+                
+                label {
+                    color: #000;
+                    display: block;
+                    margin: 4px 0;
+                }
+            </style>
+            {{ form.as_p }}
+            <button type="submit" style="width: 50%; margin: 10px auto; text-align: center;">Submit</button>
+        </form>
+    </div>
+{% endblock %}

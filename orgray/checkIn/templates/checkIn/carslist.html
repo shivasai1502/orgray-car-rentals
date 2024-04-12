@@ -1,0 +1,92 @@
+{% extends 'checkIn/base.html' %}
+
+{% block title %}Delete Car - Orgray Car Rentals{% endblock %}
+
+{% block content %}
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center; /* Center the text */
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Adjust the width of the "Select" column */
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 10%;
+        }
+
+        /* Center the checkbox */
+        input[type="checkbox"] {
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Adjust the size of the delete button */
+        .delete-button, .action-button {
+            width: 25%;
+            margin: 10px; /* Add space between buttons */
+            text-align: center;
+        }
+
+        .button-container {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+    <h2>Edit Cars Details</h2>
+
+    <form method="post" action="{% url 'delete_car' %}">
+        {% csrf_token %}
+        <input type="hidden" name="action" id="action" value="">
+        <table>
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th style="width: 40%;">Car Model</th>
+                    <th style="width: 30%;">Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for car in cars %}
+                    <tr>
+                        <td><input type="checkbox" name="selected_cars" value="{{ car.id }}"></td>
+                        <td>{{ car.car_model }}</td>
+                        <td>{{ car.is_available }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="button-container">
+            <!-- New buttons for Make Available, Delete and Make Unavailable -->
+            <button type="button" class="action-button" onclick="setAction('make_available')">Make Available</button>
+            <button type="button" class="action-button" onclick="setAction('make_unavailable')">Make Unavailable</button>
+            <button type="button" class="action-button" onclick="setAction('delete')">Delete</button>
+        </div>
+    </form>
+    
+    <script>
+        // JavaScript function to set the action value
+        function setAction(action) {
+            document.getElementById('action').value = action;
+            document.querySelector('form').submit();
+        }
+    </script>
+    
+{% endblock %}

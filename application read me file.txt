@@ -1,0 +1,37 @@
+Orgray Car Booking System
+It is online car booking rental application which support only from rental shop side application. Which is deployed in AWS. 
+Website: www.orgray.com
+It has four pages.
+1.	Admin Sign in Page (Default Credentials)
+2.	Check-in: It takes information of customer to give a car for rent.
+3.	Check-out: when customer return the car, it generates the bill.
+4.	Driver Details: when you enter customer mobile number, it gives the car rent history of that customer.
+5.	Upload/Edit Car Details: The owner enters new car details or can delete the car or can hold the car from showing it from available.
+
+
+Check-In page:
+It asks the following details.
+1.	First Name: It is mandatory field and contains a Placeholder for input
+2.	Last Name: It is mandatory field and contains a Placeholder for input
+3.	Date of Birth: It is mandatory field and contains a Placeholder for input
+4.	Mobile Number: It is mandatory field and contains a Placeholder for input
+5.	Address: It is mandatory field and contains a Placeholder for input
+6.	Driver’s License: It is mandatory field and contains a Placeholder for input
+7.	ID (passport/SSN/State-ID): It is mandatory field and contains drop down to select which id details they are giving either passport or SSN or state id and contains a Placeholder for input of that id.
+8.	Select Car (drop down): It gives the available cars list in drop down to select. 
+9.	Submit Button: on submit generates a reference number which is unique every time and sends a message to customer by mentioning car details and reference number. The reference number contains 5letters mixed of numbers and alphabets.
+
+
+
+Check-out page:
+1.	Mobile Number or Reference Number: It is mandatory field and contains a Placeholder for input.
+Based on the input from above placeholder fetch the data of customer and give complete billing details. Per day the car cost it 100$. Based on days calculate the amount to be paid and show billing page with prepopulated data.
+
+
+Driver Details:
+1.	Enter customer mobile number to fetch the customer history of his bookings.
+
+
+Upload/Edit Car Details:
+1.	Add New car details: A placeholder. And submit button.
+2.	Edit the car details:  All car details will be shown in tabular format with 2 options. Keep in hold and delete. 
